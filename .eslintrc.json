@@ -1,0 +1,21 @@
+{
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2024,
+    "sourceType": "module",
+    "project": "tsconfig.json"
+  },
+"extends": [
+  "eslint:recommended",
+  "plugin:@typescript-eslint/recommended",
+  "plugin:prettier/recommended"
+],
+  "env": {
+    "node": true
+  },
+  "rules": {},
+  "ignorePatterns": ["dist"],
+  "@typescript-eslint/no-unused-vars": "off"
+
+}

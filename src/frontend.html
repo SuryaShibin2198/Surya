@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Push Notification Test</title>
+</head>
+<body>
+  <h1>Push Notification Test</h1>
+  <script src="http://localhost:5000/socket.io/socket.io.js"></script>
+  <script>
+    const socket = io('http://localhost:5000'); 
+
+    socket.on('orderPlaced', (data) => {
+  console.log('Order placed notification received:', data);
+  alert('Order placed notification received: ' + data.message);
+});
+
+    document.getElementById('sendNotification').addEventListener('click', () => {
+      fetch('http://localhost:5000/api/order', { 
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ 
+      userId: '669745f5161aa1e15bf5ba3b', 
+      totalAmount: 2200 
+    })
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Order placed:', data);
+      })
+      .catch(error => {
+        console.error('Error placing order:', error);
+      });
+    });
+  </script>
+</body>
+</html>
