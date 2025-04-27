@@ -34,5 +34,4 @@ mongoose.connect(MONGODB_URI)
     console.error('Failed to connect to MongoDB', error);
   });
 
-export { app, server, io }; 
-
+export { app, server, io };
